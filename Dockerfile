@@ -13,5 +13,6 @@ RUN make
 
 FROM nvidia/cuda:10.0-runtime-ubuntu18.04
 WORKDIR /usr/src/app
-COPY --from=builder /usr/src/gpu-burn/gpu_burn .
+COPY --from=builder /usr/src/gpu-burn/gpu_burn  .
+COPY --from=builder /usr/src/gpu-burn/compare.ptx .
 ENTRYPOINT ["./gpu_burn"]
